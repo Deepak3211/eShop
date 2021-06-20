@@ -59,7 +59,7 @@ router.route('/destroy').post(auth, authAdmin, async (req, res) => {
     cloudinary.v2.uploader.destroy(public_id, async (err, result) => {
       
       if (err) throw err;
-   await   res.status(200).json({message: 'Image Deleted'});
+   await   res.status(200).json({message: 'Image Deleted Successfully'});
     });
   
 } catch (error) {

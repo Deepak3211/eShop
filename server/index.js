@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import { connectDB } from './config/db.js';
 import userRouter from './routes/authRoutes.js';
 import categoryRouter from './routes/categoryRoutes.js';
+import productRouter from './routes/productRoutes.js';
 import media from './routes/upload.js';
 import fileUpload from 'express-fileupload';
 // Initialize the app
@@ -28,6 +29,7 @@ app.use(fileUpload({
 
 app.use('/api/v1', userRouter);
 app.use('/api/v1', categoryRouter);
+app.use('/api/v1', productRouter);
 app.use('/api/v1', media);
 
 // Listen

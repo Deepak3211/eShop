@@ -3,8 +3,14 @@ const { Schema } = mongoose;
 
 
 const productSchema = new Schema({
+  product_id: {
+    type: String,
+    required: true,
+    trim: true,
+    unique: true
+  },
 
-  name: {
+  title: {
     type: String,
     required: [true, 'Please mention the Product'],
     maxlength: [30, 'Product name can\'t exceed 30 characters'],
@@ -19,25 +25,28 @@ const productSchema = new Schema({
   price: {
     type: Number,
     required: true,
-    maxlength: 32,
     trim: true,
   },
   category: {
 
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
+    type: String,
     required: true,
   },
-  stock: {
-    type: Number
+  content: {
+    type: String,
+    required: true,
+  },
+  images: {
+    type: Object,
+    required: true,
+  },
+  checked: {
+    type: Boolean,
+    default: false,
   },
   sold: {
     type: Number,
-    default: 0
-  },
-  photo: {
-    data: Buffer,
-    contentType: String
+    default: 0,
   }
   
   
