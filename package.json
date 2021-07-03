@@ -9,7 +9,7 @@
     "start": " node server/index",
     "server": "node server/index",
     "production": "  node server/index",
-    "heroku-postbuild" : "YARN_PRODUCTION=false && yarn install --prefix client && yarn run build --prefix client"
+    "heroku-postbuild" : "NPM_CONFIG_PRODUCTION=false && npm install --prefix client && npm run build --prefix client"
    
 
 
