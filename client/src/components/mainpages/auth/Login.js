@@ -28,7 +28,7 @@ const [showPassword, setShowPassword] = useState(false);
       setLoading(true)
       await axios.post('/api/v1/login', { ...user });
 
-      localStorage.setItem('firstLogin', true);
+      sessionStorage.setItem('firstLogin', true);
       window.location.href = '/';
       toast('Successfully Login', {
         position: "top-center",

@@ -11,7 +11,7 @@ export const DataProvider = ({ children }) => {
 
   const refreshToken = async () => {
 
-      const firstLogin = localStorage.getItem('firstLogin');
+      const firstLogin = sessionStorage.getItem('firstLogin');
       if (firstLogin) {
         
         const {data} = await axios.get('/api/v1/refresh_token')

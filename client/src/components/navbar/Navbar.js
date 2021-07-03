@@ -14,7 +14,7 @@ const Navbar = () => {
   
 const logoutUser = async () => {
 await axios.get('/api/v1/logout')
-localStorage.removeItem('firstLogin');
+sessionStorage.removeItem('firstLogin');
 window.location.href = '/';
 }
   

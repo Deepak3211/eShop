@@ -76,7 +76,7 @@ margin: 1rem;
 @media screen and (max-width: 600px)  {
   
 .card__image{
-height: 30vh;
+height: 35vh;
 border-radius: 1rem;
 width: 100%
 }
