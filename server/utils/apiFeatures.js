@@ -16,7 +16,7 @@ class APIFeatures {
     // console.log({ queryObj, queryStr })
 
     queryStr = queryStr.replace(/\b(gte|gt|lt|lte|regex)\b/g, match => '$' + match)
-    console.log({  queryStr })
+    // console.log({  queryStr })
     
      //   gte = greater than or equal
     //    lte = lesser than or equal
@@ -43,7 +43,18 @@ class APIFeatures {
     }
     return this;
    }
-  pagination() { }
+  pagination() {
+    const page = this.queryStr.page * 1 || 1;
+    // console.log(page);
+    const limit = this.queryStr.limit * 1 || 5;
+    // console.log(limit)
+
+    const skip = (page - 1) * limit;
+    // console.log(skip);
+    this.query = this.query.skip(skip).limit(limit);
+    return this;
+
+  }
 }
 
 export default APIFeatures;

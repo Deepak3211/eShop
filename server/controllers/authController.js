@@ -2,6 +2,7 @@ import User from '../models/User.js';
 import { hashPassword, comparePassword ,createAccessToken,createRefreshToken} from '../utils/auth.js';
 import jwt from 'jsonwebtoken';
 import sendToken from '../utils/jwtToken.js';
+import Payment from '../models/Payment.js';
 // Register User => /api/v1/register
 export const registerUser = async (req, res, next) => {
   
@@ -124,7 +125,7 @@ export const getAccessToken = (req, res) => {
             if(!rf_token) return res.status(400).json({message: "Please Login or Register"})
 
             jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, (err, user) =>{
-                if(err) return res.status(400).json({message: "Please Login or Register"})
+                if(err) return res.status(400).json({message: "Verification failed"})
 
                 const accessToken = createAccessToken({id: user.id})
 
@@ -145,7 +146,39 @@ export const createCategory = async (req, res) => {
     res.json({message: "admin here"})
     
   } catch (error) {
-       return res.status(500).json({ msg: err.message });
+       return res.status(500).json({ msg: error.message });
     
   }
+}
+
+
+
+export const addCart = async (req, res) => {
+
+ try {
+  const user = await User.findById(req.user.id);
+  if(!user) return res.status(400).json({message: 'User does not exist'})
+  await User.findOneAndUpdate({ _id: req.user.id }, {
+  cart: req.body.cart
+  
+  })
+  return res.status(200).json({message: 'Added to cart'})
+  
+ } catch (error) {
+   return res.status(500).json({ msg: error.message });
+  
+ }
+
+}
+
+export const history = async (req, res) => {
+
+try {
+  const history = await Payment.find({user_id: req.user.id});
+
+  res.status(200).json(history);
+} catch (error) {
+   return res.status(500).json({ msg: error.message });
+  
+}
 }

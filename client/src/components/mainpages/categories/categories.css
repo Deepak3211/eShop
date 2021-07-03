@@ -1,0 +1,38 @@
+.categories{
+
+display:flex;
+justify-content: space-evenly;
+align-items: flex-start;
+margin: 2rem;
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: .5rem;
+border: .1rem solid rgba( 255, 255, 255, 0.18 );
+
+}
+.category__form{
+margin: 5rem;
+flex: .4;
+
+}
+
+.categories__data,.segment{
+width: 100%;
+flex: .6
+
+}
+.categories__update{
+width: 30vw;
+display: flex;
+align-items:center;
+flex-direction: column;
+margin: 2rem;
+padding:1rem;
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: .5rem;
+border: .1rem solid rgba( 255, 255, 255, 0.18 );
+background-color: black;
+}

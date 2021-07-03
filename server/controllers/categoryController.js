@@ -1,9 +1,11 @@
 import Category from "../models/Category.js";
+import Product from "../models/Product.js";
 
 // Get Categories => /api/v1/category
 export const getCategories = async (req, res) => {
   try {
     const categories = await Category.find();
+if(!categories) return res.status(400).json({message: 'Category not found'})
     res.status(200).json(categories);
     
   } catch (error) {
@@ -35,8 +37,12 @@ export const createCategory = async (req, res) => {
 // Delete Category => /api/v1/category/:id
 export const deleteCategory = async (req, res) => {
   try {
-    await Category.findByIdAndDelete(req.params.id)
-    res.status(200).json({message: 'Category deleted successfully'})
+    const products = await Product.findOne({ category: req.params.id })
+    if(products) return res.status(400).json({ message: 'Please delete all products first to delete this category'})
+    const category = await Category.findByIdAndDelete(req.params.id);
+    if(!category) return res.status(400).json({message:'There is no category to delete'})
+    
+    res.status(200).json({ message: 'Category deleted successfully' })
     
   } catch (error) {
     return res.status(500).json({message: error.message});
@@ -48,7 +54,8 @@ export const deleteCategory = async (req, res) => {
 export const updateCategory = async (req, res) => {
   try {
     const { name } = req.body;
-    await Category.findOneAndUpdate({ _id: req.params.id }, { name });
+    const category = await Category.findOneAndUpdate({ _id: req.params.id }, { name });
+    if(!category) return res.status(400).json({ message: 'There is no category to update'})
     res.status(200).json({message: 'Category updated successfully'})
 
     

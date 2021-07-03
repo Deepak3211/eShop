@@ -11,10 +11,14 @@ export const getProducts = async (req, res) => {
     // console.log(req.query)
 
     const features = new APIFeatures(Product.find(), req.query)
-    .filter().sort()
+    .filter().sort().pagination()
     const products = await features.query
 
-    res.status(200).json(products);
+    res.status(200).json({
+      success: true,
+      result: products.length,
+      products
+    });
 
     
   } catch (error) {
@@ -29,7 +33,7 @@ export const createProduct = async (req, res) => {
   
 
   try {
-    const { product_id, title, price, description, content, images, category, } = req.body;
+    const { product_id, title, price, description,  images, category, } = req.body;
 
     if (!images) return res.status(400).json({ message: "No image Upload" });
 
@@ -38,7 +42,7 @@ export const createProduct = async (req, res) => {
 
 
     const product = await Product.create({
-      product_id, title:title.toLowerCase(), price, description, content, images, category
+      product_id, title:title.toLowerCase(), price, description, images, category
     });
 
     res.status(201).json({ message: 'Successfully created product' });
@@ -57,11 +61,11 @@ export const updateProduct = async (req, res) => {
   
 
   try {
-    const { title, price, description, content, images, category, } = req.body;
+    const { title, price, description, images, category, } = req.body;
     if (!images) return res.status(400).json({ message: "No  image Upload" });
     
     await Product.findByIdAndUpdate({ _id: req.params.id }, {
-      title: title.toLowerCase(), price, description, content, images, category
+      title: title.toLowerCase(), price, description, images, category
     })
     res.status(200).json({ message:"Successfully updated product" });
 

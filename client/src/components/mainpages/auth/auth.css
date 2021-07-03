@@ -1,0 +1,24 @@
+.formData, .link{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction: column;
+  margin-top: 5rem;
+  font-size:large
+}
+h1{
+  text-align:center;
+}
+.form{
+  width: 30vw;
+}
+.btn{
+  width:100%
+}
+
+@media screen and (max-width: 600px)  {
+  
+.form{
+width: 90vw;
+}
+}

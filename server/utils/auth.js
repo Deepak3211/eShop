@@ -27,11 +27,11 @@ export const comparePassword = (password, hashedpassword) => {
 
 // Create accessToken
 export const createAccessToken =  (user) => {
-  return jwt.sign(user,process.env.ACCESS_TOKEN_SECRET,{expiresIn: '1d'})
+  return jwt.sign(user,process.env.ACCESS_TOKEN_SECRET,{expiresIn: '10m'})
 
 }
 
 // Create RefreshToken
 export const createRefreshToken = (user) => {
-  return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '5d' });
+  return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '1d' });
 }

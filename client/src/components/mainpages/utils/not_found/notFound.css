@@ -1,0 +1,15 @@
+.not__found{
+
+display:flex;
+justify-content:center;
+align-self: center;
+background-color:whitesmoke;
+height:100vh;
+margin-top: -1rem;
+}
+.not__foundImage{
+border-radius:2rem;
+object-fit: contain;
+width: 70vw;
+
+}
