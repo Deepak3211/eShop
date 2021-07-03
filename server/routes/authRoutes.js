@@ -1,6 +1,6 @@
-import express from 'express';
-import { registerUser, loginUser, getAccessToken, logoutUser,getUserInfo ,addCart,history} from '../controllers/authController.js';
-import {auth} from '../middlewares/auth.js';
+const express = require('express');
+const  { registerUser, loginUser, getAccessToken, logoutUser,getUserInfo ,addCart,history} = require('../controllers/authController');
+const  { auth, authAdmin } = require('../middlewares/auth');
 
 const router = express.Router();
 
@@ -12,4 +12,4 @@ router.route('/getUserInfo').get(auth,getUserInfo);
 router.route('/addcart').patch(auth, addCart);
 router.route('/history').get(auth, history);
 
-export default router;
+module.exports = router;

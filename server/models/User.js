@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+const mongoose  = require('mongoose');
+const validator = require('validator');
 const { Schema } = mongoose;
-import validator from "validator";
 
 
 const userSchema = new Schema({
@@ -39,6 +39,6 @@ const userSchema = new Schema({
 
 }, { timestamps: true });
 
-export default mongoose.model('User', userSchema);
+module.exports =  mongoose.model('User', userSchema);
 
 

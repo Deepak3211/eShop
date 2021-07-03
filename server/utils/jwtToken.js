@@ -1,4 +1,4 @@
-import { createAccessToken,createRefreshToken} from '../utils/auth.js';
+const { createAccessToken,createRefreshToken} = require('../utils/auth.js');
 
 const sendToken = (user, statusCode, res) => {
 
@@ -23,4 +23,4 @@ const sendToken = (user, statusCode, res) => {
     })
     
 }
-export default sendToken;
+module.exports = sendToken;
