@@ -1,7 +1,7 @@
-const bcrypt = require('bcrypt') ;
-const jwt = require('jsonwebtoken');
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 // hashing the password
-exports.hashPassword = (password) => {
+export const hashPassword = (password) => {
   return new Promise((resolve, reject) => {
     bcrypt.genSalt(10, (err, salt) => {
       if (err) {
@@ -21,17 +21,17 @@ exports.hashPassword = (password) => {
 
 // Comparing the password
 
-exports.comparePassword = (password, hashedpassword) => {
+export const comparePassword = (password, hashedpassword) => {
   return bcrypt.compare(password, hashedpassword);
 }
 
 // Create accessToken
-exports.createAccessToken =  (user) => {
+export const createAccessToken =  (user) => {
   return jwt.sign(user,process.env.ACCESS_TOKEN_SECRET,{expiresIn: '10m'})
 
 }
 
 // Create RefreshToken
-exports.createRefreshToken = (user) => {
+export const createRefreshToken = (user) => {
   return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '1d' });
 }

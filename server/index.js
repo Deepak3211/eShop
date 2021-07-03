@@ -1,18 +1,17 @@
-const express = require('express');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const dotenv = require('dotenv');
-dotenv.config();
-const   connectDB  = require('./config/db');
-const userRouter = require('./routes/authRoutes');
-const categoryRouter = require('./routes/categoryRoutes');
-const productRouter = require('./routes/productRoutes');
-const paymentRouter = require('./routes/paymentRoutes');
-const media = require('./routes/upload');
-const fileUpload = require('express-fileupload');
-const path = require('path');
-
-
+import express from 'express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import { connectDB } from './config/db.js';
+import userRouter from './routes/authRoutes.js';
+import categoryRouter from './routes/categoryRoutes.js';
+import productRouter from './routes/productRoutes.js';
+import paymentRouter from './routes/paymentRoutes.js';
+import media from './routes/upload.js';
+import fileUpload from 'express-fileupload';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // Initialize the app
 const app = express();
 
@@ -43,9 +42,10 @@ connectDB();
 const PORT = process.env.PORT || 5050;
 
 if (process.env.NODE_ENV === 'production') {
-app.use(express.static(path.join(__dirname, '../client/build')))  
+  app.use(express.static(path.join(__dirname, '../client/build')));
+  
   app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname,'client','build', 'index.html'))
+  res.sendFile(path.resolve(__dirname,'../client/build','index.html'));
   })
 }
 

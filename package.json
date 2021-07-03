@@ -4,6 +4,7 @@
   "main": "index.js",
   "author": "Deepak",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "start": " node server/index",
     "server": "node server/index",

@@ -1,9 +1,10 @@
-const mongoose  = require('mongoose');
-
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const db = process.env.MONGO_URL;
 
- const connectDB = async () => {
+export const connectDB = async () => {
   try {
     await mongoose.connect(db, {
       useCreateIndex: true,
@@ -17,4 +18,3 @@ const db = process.env.MONGO_URL;
     console.log(error.message);
   }
 }
-module.exports = connectDB;

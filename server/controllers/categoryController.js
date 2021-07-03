@@ -1,7 +1,8 @@
-const Category = require("../models/Category");
-const Product = require("../models/Product");
+import Category from "../models/Category.js";
+import Product from "../models/Product.js";
+
 // Get Categories => /api/v1/category
-exports.getCategories = async (req, res) => {
+export const getCategories = async (req, res) => {
   try {
     const categories = await Category.find();
 if(!categories) return res.status(400).json({message: 'Category not found'})
@@ -13,7 +14,7 @@ if(!categories) return res.status(400).json({message: 'Category not found'})
 }
 
 // Post Category => /api/v1/category
-exports.createCategory = async (req, res) => {
+export const createCategory = async (req, res) => {
   try {
     // If user has role = 1 => admin
     const { name } = req.body;
@@ -34,7 +35,7 @@ exports.createCategory = async (req, res) => {
 }
 
 // Delete Category => /api/v1/category/:id
-exports.deleteCategory = async (req, res) => {
+export const deleteCategory = async (req, res) => {
   try {
     const products = await Product.findOne({ category: req.params.id })
     if(products) return res.status(400).json({ message: 'Please delete all products first to delete this category'})
@@ -50,7 +51,7 @@ exports.deleteCategory = async (req, res) => {
 }
 
 // Update Category => /api/v1/category/:id
-exports.updateCategory = async (req, res) => {
+export const updateCategory = async (req, res) => {
   try {
     const { name } = req.body;
     const category = await Category.findOneAndUpdate({ _id: req.params.id }, { name });

@@ -1,12 +1,12 @@
+import Razorpay from 'razorpay';
+import crypto from 'crypto';
+import User from '../models/User.js';
+import Product from "../models/Product.js";
+import Payment from "../models/Payment.js";
 
-const Razorpay = require('razorpay');
-const crypto = require('crypto');
-const User = require('../models/User.js');
-const Product = require('../models/Product.js');
-const Payment = require('../models/Payment.js');
 // @Get all Payments => /api/v1/payments
 
-exports.getPayments = async (req, res) => {
+export const getPayments = async (req, res) => {
 
   try {
     const payments = await Payment.find();
@@ -21,7 +21,7 @@ exports.getPayments = async (req, res) => {
 
 
 
-exports.createOrder = async (req, res) => {
+export const createOrder = async (req, res) => {
   try {
    
   const { amount, currency } = req.body;
@@ -48,7 +48,7 @@ exports.createOrder = async (req, res) => {
 
 //  Order success
 
-exports.orderSuccess = async (req, res) => {
+export const orderSuccess = async (req, res) => {
  try {
   const user = await User.findById(req.user.id);
     console.log(user);

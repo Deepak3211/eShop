@@ -1,8 +1,8 @@
-const express = require('express'); 
+import express from 'express';
 const router = express.Router();
-const  cloudinary  = require('cloudinary'); 
-const { auth, authAdmin } = require('../middlewares/auth');
-const  fs  = require('fs'); 
+import cloudinary from 'cloudinary';
+import { auth, authAdmin } from '../middlewares/auth.js';
+import fs from 'fs';
 
 // Uploda image to cloudinary
 cloudinary.config({
@@ -76,4 +76,5 @@ router.route('/destroy').post(auth, authAdmin, async (req, res) => {
     })
   }
 
-module.exports = router;
+
+export default router;

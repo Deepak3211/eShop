@@ -1,8 +1,9 @@
-const Product = require('../models/Product');
-const APIFeatures = require('../utils/apiFeatures');
+import Product from "../models/Product.js";
+import APIFeatures from '../utils/apiFeatures.js';
+
 
 // @Get Products => /api/v1/products
-exports.getProducts = async (req, res) => {
+export const getProducts = async (req, res) => {
   
 
   try {
@@ -28,7 +29,7 @@ exports.getProducts = async (req, res) => {
 
 // @Post Products => /api/v1/products
 
-exports.createProduct = async (req, res) => {
+export const createProduct = async (req, res) => {
   
 
   try {
@@ -56,7 +57,7 @@ exports.createProduct = async (req, res) => {
 
 // @Update Products => /api/v1/products
 
-exports.updateProduct = async (req, res) => {
+export const updateProduct = async (req, res) => {
   
 
   try {
@@ -79,7 +80,7 @@ exports.updateProduct = async (req, res) => {
 // @Delete Products => /api/v1/products
 
 
-exports.deleteProduct = async (req, res) => {
+export const deleteProduct = async (req, res) => {
   
 
   try {

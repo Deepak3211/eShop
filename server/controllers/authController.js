@@ -1,11 +1,10 @@
-
-const User = require('../models/User');
-const { hashPassword, comparePassword, createAccessToken, createRefreshToken } = require('../utils/auth');
-const jwt = require('jsonwebtoken');
-const sendToken = require('../utils/jwtToken');
-const Payment = require('../models/Payment');
+import User from '../models/User.js';
+import { hashPassword, comparePassword ,createAccessToken,createRefreshToken} from '../utils/auth.js';
+import jwt from 'jsonwebtoken';
+import sendToken from '../utils/jwtToken.js';
+import Payment from '../models/Payment.js';
 // Register User => /api/v1/register
-exports.registerUser = async (req, res, next) => {
+export const registerUser = async (req, res, next) => {
   
   try {
     const { name, email, password } = req.body;
@@ -53,7 +52,7 @@ exports.registerUser = async (req, res, next) => {
 };
 
 // Login User => /api/v1/login
-exports.loginUser = async (req, res) => {
+export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email: email.toLowerCase() }).select('+password');
@@ -82,7 +81,7 @@ exports.loginUser = async (req, res) => {
 
 
 // Logout User => /api/v1/logout
-exports.logoutUser = (req, res) => {
+export const logoutUser = (req, res) => {
   try {
     res.clearCookie('refreshToken', {
       path: '/api/v1/refresh_token',
@@ -100,7 +99,7 @@ exports.logoutUser = (req, res) => {
 }
 
 // Get User Info => /api/v1/getUserInfo
-exports.getUserInfo = async (req, res) => {
+export const getUserInfo = async (req, res) => {
   // res.json(req.user)
   try {
     const user = await User.findById(req.user.id);
@@ -119,7 +118,7 @@ exports.getUserInfo = async (req, res) => {
 
 // Get accessToken => /api/v1/refresh_token
 
-exports.getAccessToken = (req, res) => {
+export const getAccessToken = (req, res) => {
 
      try {
             const rf_token = req.cookies.refreshToken;
@@ -142,7 +141,7 @@ exports.getAccessToken = (req, res) => {
 } 
 
 
-exports.createCategory = async (req, res) => {
+export const createCategory = async (req, res) => {
   try {
     res.json({message: "admin here"})
     
@@ -154,7 +153,7 @@ exports.createCategory = async (req, res) => {
 
 
 
-exports.addCart = async (req, res) => {
+export const addCart = async (req, res) => {
 
  try {
   const user = await User.findById(req.user.id);
@@ -172,7 +171,7 @@ exports.addCart = async (req, res) => {
 
 }
 
-exports.history = async (req, res) => {
+export const history = async (req, res) => {
 
 try {
   const history = await Payment.find({user_id: req.user.id});
