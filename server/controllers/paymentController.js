@@ -36,7 +36,7 @@ export const createOrder = async (req, res) => {
   
   }
    const order = await instance.orders.create(options);
-   console.log(order);
+  //  console.log(order);
   if(!order) return res.status(400).json('There is no order')
  res.json(order)
 } catch (error) {
@@ -51,7 +51,7 @@ export const createOrder = async (req, res) => {
 export const orderSuccess = async (req, res) => {
  try {
   const user = await User.findById(req.user.id);
-    console.log(user);
+    // console.log(user);
    if (!user) return res.status(400).json({ message: 'User does not exist' });
    const {amount,
             orderCreationId,
@@ -63,7 +63,7 @@ export const orderSuccess = async (req, res) => {
             address
    } = req.body;
    
-   console.log(req.body)
+  //  console.log(req.body)
    
    const { _id, name, email } = user;
    const { phone, pincode, addressLine, city, state } = address;

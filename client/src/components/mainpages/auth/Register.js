@@ -38,7 +38,7 @@ const [showPassword, setShowPassword] = useState(false);
       setLoading(false);
       } catch (err) {
       setLoading(false);
-        console.log(err)
+        // console.log(err)
         
       toast.error(err.response.data.message, {
         position: "top-center",

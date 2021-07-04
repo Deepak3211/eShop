@@ -10,7 +10,6 @@ const OrderHistory = () => {
   const [isAdmin] = state.userAPI.isAdmin;
   const [token] = state.token;
   
-  
   useEffect(() => {
     if (token) {
       const getHistory = async () => {
@@ -18,14 +17,14 @@ const OrderHistory = () => {
           const {data} = await axios.get('/api/v1/payments', {
         headers: {Authorization: token}
         })
-        console.log('history', data);
+        // console.log('history', data);
         setHistory(data);
         } else {
           
         const {data} = await axios.get('/api/v1/history', {
         headers: {Authorization: token}
         })
-        console.log('history', data);
+        // console.log('history', data);
         setHistory(data);
         }
       }

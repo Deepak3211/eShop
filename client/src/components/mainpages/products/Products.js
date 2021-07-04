@@ -22,14 +22,14 @@ const [isAdmin] = state.userAPI.isAdmin;
   const deleteProduct = async (id, public_id) => {
     try {
       setLoading(true);
-    console.log(products)
+    // console.log(products)
       const deleteImage = await axios.post('/api/v1/destroy', { public_id}, {
         headers: { Authorization: token}
       })
       const deleteProduct = await  axios.delete(`/api/v1/products/${id}`, {
       headers: { Authorization: token}
       })
-      console.log('deleteProduct', deleteProduct)
+      // console.log('deleteProduct', deleteProduct)
       toast(deleteProduct.data.message, {
       position: "top-center",
       })

@@ -11,7 +11,6 @@ const Cart = () => {
  const [cart, setCart] = state.userAPI.cart;
  const [token] = state.token;
  const [total, setTotal] = useState(0);
- console.log(state)
    const [address1, setAddress1] = useState({
   
     phone: '',
@@ -20,7 +19,6 @@ const Cart = () => {
     city: '',
     State: '',
   })
-  console.log(address1)
 
  const handleChange = (e) => {
     setAddress1({...address1,[e.target.name]: e.target.value})
@@ -129,7 +127,7 @@ const Cart = () => {
    )}
    <div className="total">
        <h3>Total: ₹ {total}</h3>
-     <Address address1 = {address1} setAddress1 = {address1} handleChange = {handleChange}/>
+       <Address address1={address1} handleChange = {handleChange}/>
        
     <Razorpay total={total} addToCart = {addToCart} address1 = {address1}/>
    </div>

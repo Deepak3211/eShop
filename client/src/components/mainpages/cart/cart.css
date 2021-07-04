@@ -99,8 +99,7 @@ padding:1rem;
   font-size:x-large;
   outline: none;
 border: .1rem solid lightslategray;
-border-bottom-left-radius: 2rem;
-border-top-right-radius: 2rem;
+border-radius:2rem;
 
 }
 .btn:hover{
@@ -132,5 +131,9 @@ margin: 0;
 object-fit: contain;
 margin: 0;
 
+}
+.total{
+display: flex;
+flex-direction: column;
 }
 }

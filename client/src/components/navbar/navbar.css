@@ -57,6 +57,18 @@ align-items:center;
 margin-right: 1rem;
 
 }
+.cart__information > span{
+color:rgba(20, 10, 1, 0.808);
+font-size:x-large;
+border-radius: .3rem;
+/* border: .1rem dashed gray; */
+margin-right: .3rem;
+box-shadow: 0 5px 10px 2px rgba(224, 18, 214, 0.808);
+background-color:rgb(24, 233, 212);
+text-align: center;
+padding: .1rem ;
+
+}
 @media screen and (max-width: 600px) {
  
 .navbar{

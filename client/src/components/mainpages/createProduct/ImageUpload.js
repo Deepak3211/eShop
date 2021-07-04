@@ -1,6 +1,6 @@
 import { Image, Icon} from 'semantic-ui-react'
 import './createproduct.css'
-const ImageUpload = ({loading, handleUpload,images,inputRef,handleDelete}) => {
+const ImageUpload = ({handleUpload,images,inputRef,handleDelete}) => {
   return (
     <div className="upload">
       <input type="file" name="media" id="file" style={{ display: 'none' }}

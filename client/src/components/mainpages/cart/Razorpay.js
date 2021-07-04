@@ -1,12 +1,16 @@
 import axios from "axios";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { GlobalState } from "../../../GlobalState";
 import './cart.css'
 const Razorpay = ({total,addToCart, address1}) => {
  const state = useContext(GlobalState);
- const [cart, setCart] = state.userAPI.cart;
- const [token] = state.token;
+  const [cart, setCart] = state.userAPI.cart;
+  const [token] = state.token;
+  const [prodName, setProdName] = useState('');
+  useEffect(() => {
+  cart.forEach(product => product ? setProdName(product.title): '')
+  },[])
 useEffect(() => {
 
 const loadScripts =  (src) => {
@@ -41,16 +45,16 @@ if (!result) {
 alert("Server error")
 return;
 }
-console.log('result', result)
+// console.log('result', result)
 const {  id: order_id, currency } = result.data;
 
 const options = {
 key: process.env.REACT_APP_KEY,
 amount: total,
 currency: currency,
-name: 'Chota Don',
-description: 'Chota Don Pvt. Ltd',
-image: 'https://www.dailyexcelsior.com/wp-content/uploads/2013/12/url.jpg',
+name: 'Deepak Kaushal',
+description: prodName,
+image: 'https://avatars.githubusercontent.com/u/43593743?v=4',
 order_id: order_id,
   handler: async (response) => {
   console.log(response)
@@ -72,7 +76,7 @@ address: address1
     
     })
 // alert(result.data.msg)
-console.log(result.data.msg);
+// console.log(result.data.msg);
   setCart([])
   addToCart([])
 toast.dark(result.data.msg, {
@@ -92,7 +96,7 @@ email: 'chotasabji@gmail.com',
 contact: '9999999999',
 },
 notes: {
-address: 'Chota Sabji Pvt. Ltd'
+  address: cart.forEach(product => <>{ product.title}</>)
 }
 ,
 theme: {

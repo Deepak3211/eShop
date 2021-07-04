@@ -33,9 +33,7 @@ const CreateProduct = () => {
   const inputRef = useRef();
   
   const [products] = state.productsAPI.products;
-  console.log('image',images)
-  console.log('products',products)
-  console.log('product',product)
+  
   
   
   useEffect(() => {
@@ -58,7 +56,7 @@ const CreateProduct = () => {
     }
   }, [params.id, products]);
   
-  console.log('images', images)
+  // console.log('images', images)
   
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -86,9 +84,11 @@ const CreateProduct = () => {
       })
       setLoading(false)
       setImages(data)
-      console.log('data', data)
+      // console.log('data', data)
     } catch (error) {
-      console.log(error.response.data.message)
+      toast(error.response.data.message, {
+      position: "top-center",
+      })
     }
   
   }

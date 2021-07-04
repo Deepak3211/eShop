@@ -40,7 +40,7 @@ const Categories = () => {
       setCategory('');
       setCallback(!callback);
     } catch (error) {
-      toast(error.message, {
+      toast(error.response.data.message, {
       position: "top-center",
       });
     }
@@ -55,7 +55,7 @@ const Categories = () => {
   }
   
   catch (error) {
-    toast(error.message, {
+    toast(error.response.data.message, {
       position: "top-center",
       });
   }
@@ -77,7 +77,7 @@ const Categories = () => {
 
       
     } catch (error) {
-       toast(error.message, {
+       toast(error.response.data.message, {
         position: "top-center",
 
       });
