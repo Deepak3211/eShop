@@ -71,7 +71,7 @@ if (detailProduct.length === 0) return null;
           
       </div>
       <div className = 'related__productsDetails'>
-        <h2>Related Products</h2>
+        <h2>Similar Products</h2>
         <div className="related__products">
 
       
