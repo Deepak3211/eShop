@@ -22,7 +22,7 @@ const UserAPI = (token) => {
 
 
           // console.log(data)
-          setIsLogged(true,data.name,data.email);
+          setIsLogged(true);
          data.role === 1 ? setIsAdmin(true) : setIsAdmin(false);
          setCart(data.cart);
 
