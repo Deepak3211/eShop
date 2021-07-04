@@ -86,7 +86,7 @@ window.location.href = '/';
                 {
             isLogged ? userRouter() : <li ><Link to="/login" className="header__links">
               <Icon name='sign-in' />
-              Login ✥ Register
+              Login
             </Link>
             </li>
                 }
@@ -102,8 +102,9 @@ window.location.href = '/';
             <span>{cart.length}</span>
             
             <Link to="/cart" className="header__links">
+            
               <Icon name='shopping cart' />
-              
+              Cart
               </Link>
                 </div>
             }

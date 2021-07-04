@@ -26,13 +26,10 @@ justify-content: center;
 align-items: center;
 margin: 1rem;
 border-radius: 2rem;
-margin-top: 4rem;
+/* margin-top: 2rem; */
 box-shadow: 0 8px 32px 0 rgba(125, 128, 165, 0.37);
-position: sticky;
-z-index: 1;
-top: 4.5rem;
-background-color:whitesmoke;
-color: gray;
+background-color:#23303E;
+color: whitesmoke;
 }
 .filter__left{
 flex: .2;
@@ -50,6 +47,13 @@ border: none;
 padding:.7rem;
 border-radius:1rem;
 margin-left: 2rem;
+
+}
+
+select{
+color : rgb(228, 129, 37);
+background-color:#23303E;
+cursor: pointer;
 
 }
 
@@ -87,7 +91,6 @@ align-items: center;
    /* margin-left: 1rem; */
 justify-content:center;
 align-items:center;
-top: 14rem;
 
   }
 }

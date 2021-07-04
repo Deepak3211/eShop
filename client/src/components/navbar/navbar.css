@@ -43,6 +43,7 @@ margin: .5rem;
 }
 .header__links{
 color: whitesmoke;
+display: flex;
 }
 .header__links:hover{
 color: lightgrey;
