@@ -84,4 +84,7 @@ align-items:center;
 flex-direction: column;
 
 }
+.cart__information {
+margin-bottom: 1rem;
+}
 }
