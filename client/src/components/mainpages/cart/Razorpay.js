@@ -57,7 +57,7 @@ description: prodName,
 image: 'https://avatars.githubusercontent.com/u/43593743?v=4',
 order_id: order_id,
   handler: async (response) => {
-  console.log(response)
+  // console.log(response)
     const data = {
 amount: total ,
 orderCreationId: order_id,
