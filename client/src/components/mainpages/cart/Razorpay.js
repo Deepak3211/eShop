@@ -10,7 +10,7 @@ const Razorpay = ({total,addToCart, address1}) => {
   const [prodName, setProdName] = useState('');
   useEffect(() => {
   cart.forEach(product => product ? setProdName(product.title): '')
-  },[])
+  },[cart])
 useEffect(() => {
 
 const loadScripts =  (src) => {
