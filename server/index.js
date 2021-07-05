@@ -9,9 +9,9 @@ import paymentRouter from './routes/paymentRoutes.js';
 import media from './routes/upload.js';
 import fileUpload from 'express-fileupload';
 import path from 'path';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// import { fileURLToPath } from 'url';
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 // Initialize the app
 const app = express();
 
