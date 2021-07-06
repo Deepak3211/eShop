@@ -33,7 +33,7 @@ if (detailProduct.length === 0) return null;
       <div className="product__detailsLeft">
 
       <Image className='detailCard__image' src={detailProduct.images.url} />
-      
+          <p>{detailProduct.title}</p>
       </div>
       <div className="product__detailsRight">
        <Card className = 'detail__card' >

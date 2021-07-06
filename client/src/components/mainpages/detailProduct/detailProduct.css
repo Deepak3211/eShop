@@ -10,6 +10,19 @@
   display:flex;
   justify-content:center;
   align-items:center;
+flex-direction: column;
+margin-top: 2rem;
+}
+.product__detailsLeft > p{
+margin-top: 1rem;
+text-transform: capitalize;
+background-color: #F3A847;
+border-radius: 2rem;
+padding:1rem;
+font-size:large;
+font-weight:500;
+color: rgb(17, 85, 148);
+text-align: center;
 }
 .product__detailsRight{
   flex:.5;
@@ -17,21 +30,21 @@
   justify-content:flex-start;
   align-items:center;
   flex-direction: column;
-  height:50vh;
+margin-top:2rem;
 
 
 }
 .detailCard__image{
   height:50vh;
   object-fit:contain;
-  margin: 2rem;
+  /* margin: 2rem; */
 border-radius: 2rem;
 
 
 }
 .detail__card{
 display:flex;
-  height:50vh;
+  height:55vh;
 width: 30vw;
 
 }
