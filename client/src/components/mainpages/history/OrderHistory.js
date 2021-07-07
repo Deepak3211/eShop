@@ -41,7 +41,7 @@ const OrderHistory = () => {
       ) :
         
         (
-      <h3 >Order Details &nbsp;:&nbsp; {history.length} </h3>
+      <h3 >Your Orders &nbsp;:&nbsp; {history.length} </h3>
 )}
       <Table color = 'black' inverted  className='order__table'>
       <Table.Header>
