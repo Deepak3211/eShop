@@ -110,7 +110,7 @@ const paymentObject = new window.Razorpay(options);
 return (
 <div className="app">
    
-  <button className='btn' onClick={displayRazorpay}>Pay ₹ {total === 0 ? '' : total}</button>
+  <button className='btn' onClick={displayRazorpay}disabled = {!address1.phone ||!address1.city || !address1.State || !address1.pincode || !address1.addressLine}>Pay ₹ {total === 0 ? '' : total}</button>
   
   </div>
  )

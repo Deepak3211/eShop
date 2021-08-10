@@ -41,7 +41,7 @@ window.location.href = '/';
             <>
             <li><Link to="/history" className="header__links">
               <Icon name='history' />
-              History
+              {isAdmin ? 'Orders': 'My Orders'}
             </Link>
             </li>
             <li><Link to="/" onClick={logoutUser} className="header__links">

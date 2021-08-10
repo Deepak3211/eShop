@@ -92,7 +92,7 @@ export const orderSuccess = async (req, res) => {
         // YOU CAN SAVE THE DETAILS IN YOUR DATABASE IF YOU WANT
    
         res.status(200).json({
-            msg: `Your payment of ₹ ${amount} is successfully completed 😃 `,
+            msg: `Your payment of ₹${amount} is successfully completed 😃 `,
             // orderId: razorpayOrderId,
             // paymentId: razorpayPaymentId,
         });
