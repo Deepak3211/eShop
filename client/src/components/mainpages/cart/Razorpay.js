@@ -9,7 +9,7 @@ const Razorpay = ({total,addToCart, address1}) => {
   const [cart, setCart] = state.userAPI.cart;
   const [token] = state.token;
   const [prodName, setProdName] = useState('');
-  const [history, setHistory] = state.userAPI.history;
+    const [userInfo, setUserInfo] = state.userAPI.userInfo;
   useEffect(() => {
   cart.forEach(product => product ? setProdName(product.title): '')
   },[cart])
@@ -93,8 +93,8 @@ progress: undefined,
 })
 },
 prefill: {
-// name: 'Deepak Kaushal',
-email: history[0].email,
+name: userInfo.name,
+email: userInfo.email,
 contact: address1.phone,
 },
 notes: {

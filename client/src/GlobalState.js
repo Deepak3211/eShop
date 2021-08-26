@@ -35,7 +35,7 @@ export const DataProvider = ({ children }) => {
     userAPI: UserAPI(token),
     categoriesAPI: CategoriesAPI(),
   }
-
+// console.log(state);
   return (
     <GlobalState.Provider value = {state}>
       {children}
