@@ -2,12 +2,14 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { GlobalState } from "../../../GlobalState";
-import './cart.css'
+import './cart.css';
+import logo from './eShopp.png'
 const Razorpay = ({total,addToCart, address1}) => {
  const state = useContext(GlobalState);
   const [cart, setCart] = state.userAPI.cart;
   const [token] = state.token;
   const [prodName, setProdName] = useState('');
+  const [history, setHistory] = state.userAPI.history;
   useEffect(() => {
   cart.forEach(product => product ? setProdName(product.title): '')
   },[cart])
@@ -52,9 +54,9 @@ const options = {
 key: process.env.REACT_APP_KEY,
 amount: total,
 currency: currency,
-name: 'Deepak Kaushal',
+name: 'eShop',
 description: prodName,
-image: 'https://avatars.githubusercontent.com/u/43593743?v=4',
+image: logo,
 order_id: order_id,
   handler: async (response) => {
   // console.log(response)
@@ -91,9 +93,9 @@ progress: undefined,
 })
 },
 prefill: {
-name: 'Deepak Kaushal',
-email: 'chotasabji@gmail.com',
-contact: '9999999999',
+// name: 'Deepak Kaushal',
+email: history[0].email,
+contact: address1.phone,
 },
 notes: {
   address: cart.forEach(product => <>{ product.title}</>)
