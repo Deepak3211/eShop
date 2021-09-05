@@ -11,7 +11,7 @@ const ProductsAPI = () => {
   
   useEffect(() => {
   const getProducts = async () => {
-    const { data} = await axios.get(`/api/v1/products?limit=${page*5}&${category}&${sort}&title[regex]=${search}`);
+    const { data} = await axios.get(`/api/v1/products?limit=${page*10}&${category}&${sort}&title[regex]=${search}`);
     // console.log('getProducts', data);
     setProducts(data.products);
     setResult(data.result);

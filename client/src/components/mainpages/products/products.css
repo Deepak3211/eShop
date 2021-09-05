@@ -84,6 +84,9 @@ display: flex;
 justify-content: center;
 align-items: center;
 }
+.load__more >.load__moreBtn{
+  margin-bottom: 1rem;
+}
 @media screen and (max-width: 600px)  {
   .filter__products{
     display: flex;

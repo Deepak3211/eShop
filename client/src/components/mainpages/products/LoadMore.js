@@ -8,7 +8,7 @@ const LoadMore = () => {
   return (
     <div className="load__more">
       {
-     result<page *5 ? "": <Button size = 'massive' className ='load__moreBtn' color = 'instagram' onClick={() =>setPage(page + 1)}>Load More</Button>
+     result<page *5 ? "": <Button size = 'medium' className ='load__moreBtn' color = 'twitter' onClick={() =>setPage(page + 1)}>Load More</Button>
       }
       
     </div>

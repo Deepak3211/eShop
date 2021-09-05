@@ -89,7 +89,6 @@ font-size:large;
   border: .2rem solid whitesmoke;
   margin: 2rem;
 border-radius: 2rem;
-/* width: 100%; */
 
 }
 .related__productsDetails> h2{
@@ -101,12 +100,14 @@ font-size:xx-large;
 
 }
 .related__products{
- display:flex;
- align-items:center;
- justify-content:flex-start;
-width:40vw;
+ display:grid;
+     gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    margin-bottom: 10px;
+    border-radius: 30px;
 
 }
+ 
 
 @media screen and (max-width: 600px)  {
   .product__details ,.related__products{
