@@ -3,6 +3,7 @@ import { hashPassword, comparePassword ,createAccessToken,createRefreshToken} fr
 import jwt from 'jsonwebtoken';
 import sendToken from '../utils/jwtToken.js';
 import Payment from '../models/Payment.js';
+
 // Register User => /api/v1/register
 export const registerUser = async (req, res, next) => {
   

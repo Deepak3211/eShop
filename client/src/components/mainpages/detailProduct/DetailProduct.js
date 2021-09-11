@@ -13,7 +13,7 @@ const state = useContext(GlobalState);
   const addCart = state.userAPI.addCart;
 // console.log(products)
 const [detailProduct, setDetailProduct] = useState([]);
-// console.log(detailProduct);
+// console.log('detailProduct',detailProduct);
 
 useEffect(() => {
 if (params.id) {
@@ -75,9 +75,13 @@ if (detailProduct.length === 0) return null;
         <div className="related__products">
 
       
-        {products.map(product => {
-          return product.category === detailProduct.category ? <ProductItem className ='x'  key={ product._id} product={ product } /> : null
-        })}
+          {products.map(product => {
+            // console.log('product',product)
+            if (product._id!==detailProduct._id) {
+             
+              return product.category === detailProduct.category ? <ProductItem className ='x'  key={ product._id} product={ product } /> : null
+            }
+            })}
         </div>
       </div>
 </>
