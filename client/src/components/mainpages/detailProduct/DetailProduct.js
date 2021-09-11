@@ -10,8 +10,8 @@ const params = useParams();
 // console.log('params', params);
 const state = useContext(GlobalState);
   const [products] = state.productsAPI.products;
+  // console.log(products)
   const addCart = state.userAPI.addCart;
-// console.log(products)
 const [detailProduct, setDetailProduct] = useState([]);
 // console.log('detailProduct',detailProduct);
 
