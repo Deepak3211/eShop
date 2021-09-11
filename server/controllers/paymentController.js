@@ -36,7 +36,7 @@ export const createOrder = async (req, res) => {
   
   }
    const order = await instance.orders.create(options);
-  //  console.log(order);
+  //  console.log('order',order);
   if(!order) return res.status(400).json('There is no order')
  res.json(order)
 } catch (error) {
@@ -66,7 +66,6 @@ export const orderSuccess = async (req, res) => {
   //  console.log(req.body)
    
    const { _id, name, email } = user;
-   const { phone, pincode, addressLine, city, state } = address;
    cart.filter(item => {
    return soldProducts(item._id,item.quantity,item.sold)
    

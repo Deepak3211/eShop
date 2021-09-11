@@ -5,15 +5,19 @@ import { GlobalState } from "../../../GlobalState";
 import './cart.css';
 import logo from './eShopp.png'
 const Razorpay = ({total,addToCart, address1}) => {
- const state = useContext(GlobalState);
+  const state = useContext(GlobalState);
   const [cart, setCart] = state.userAPI.cart;
   const [token] = state.token;
   const [prodName, setProdName] = useState('');
-    const [userInfo, setUserInfo] = state.userAPI.userInfo;
+  const [userInfo, setUserInfo] = state.userAPI.userInfo;
+
+
   useEffect(() => {
   cart.forEach(product => product ? setProdName(product.title): '')
-  },[cart])
-useEffect(() => {
+  }, [cart])
+  
+
+  useEffect(() => {
 
 const loadScripts =  (src) => {
 return new Promise((resolve, reject) => {
@@ -59,7 +63,7 @@ description: prodName,
 image: logo,
 order_id: order_id,
   handler: async (response) => {
-  // console.log(response)
+  // console.log('response',response)
     const data = {
 amount: total ,
 orderCreationId: order_id,
@@ -78,7 +82,7 @@ address: address1
     
     })
 // alert(result.data.msg)
-// console.log(result.data.msg);
+// console.log(result.data.msg,'ress');
   setCart([])
   addToCart([])
 toast.dark(result.data.msg, {

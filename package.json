@@ -6,7 +6,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": " node server/index",
+    "start": " nodemon server/index",
     "server": "node server/index",
     "production": "  node server/index",
 "server-install":"yarn install",
