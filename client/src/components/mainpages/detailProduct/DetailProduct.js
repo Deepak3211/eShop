@@ -76,11 +76,9 @@ if (detailProduct.length === 0) return null;
 
       
           {products.map(product => {
-            // console.log('product',product)
-            if (product._id!==detailProduct._id) {
-             
-              return product.category === detailProduct.category ? <ProductItem className ='x'  key={ product._id} product={ product } /> : null
-            }
+           
+              return product._id!==detailProduct._id && product.category === detailProduct.category ? <ProductItem className ='x'  key={ product._id} product={ product } /> : null
+            
             })}
         </div>
       </div>
