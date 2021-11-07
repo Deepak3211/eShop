@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import { GlobalState } from "../../../GlobalState"
-import { Input } from 'semantic-ui-react';
-
+import {DebounceInput} from 'react-debounce-input';
 const Filter = () => {
   const state = useContext(GlobalState);
   const [categories] = state.categoriesAPI.categories;
@@ -28,7 +27,11 @@ const Filter = () => {
         </select>
       </div>
       <div className="search__middle">
-       <Input className = 'search__products' icon = "search" placeholder = "Search Product" onChange={e=>setSearch(e.target.value.toLowerCase())}/>
+        <DebounceInput
+          className='search__products' icon="search"
+          placeholder="Search Product"
+          debounceTimeout = {300}
+          onChange={e => setSearch(e.target.value.toLowerCase())} />
       </div>
       <div className="sort__right">
         <span>Sort By: </span>
