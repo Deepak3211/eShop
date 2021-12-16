@@ -1,4 +1,4 @@
 # eShop
 
-> Live Demo [eShop](hhttps://shop-direct.herokuapp.com/)
+> Live Demo [eShop](https://shop-direct.herokuapp.com/)
 
