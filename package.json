@@ -9,12 +9,9 @@
     "start": " nodemon server/index",
     "server": "node server/index",
     "production": "  node server/index",
-"server-install":"yarn install",
-"client-install": "cd client && yarn install",
-"heroku-postbuild" : "cd client && yarn install && yarn run build"
-   
-
-
+    "server-install": "yarn install",
+    "client-install": "cd client && yarn install",
+    "heroku-postbuild": "cd client && yarn install && yarn run build"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
